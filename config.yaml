@@ -10,6 +10,6 @@ credentials:
       name: Guest
       password: $2b$12$hAodaErH08BRfVQ3FoqYjeLp1tOslvJ7BkX7t4SNBt5atHeRt9XGy # To be replaced with hashed password
 cookie:
-  expiry_days: 30  # number of days until password is asked again
+  expiry_days: 0  # number of days until password is asked again
   key: NA5Q4IC1aqMN2vDeDH3pFjiRPr7FYMGq # Must be string, use https://randomkeygen.com/
   name: streamlitcookie
