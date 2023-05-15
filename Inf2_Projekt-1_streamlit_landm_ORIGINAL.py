@@ -14,9 +14,9 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import graphviz
 from jsonbin import load_data_jsonbin, save_data_jsonbin
-#import yaml
-#from yaml.loader import SafeLoader
-#import streamlit_authenticator as stauth
+import yaml
+from yaml.loader import SafeLoader
+import streamlit_authenticator as stauth
 
 #Laden der Daten
 
