@@ -37,7 +37,6 @@ def load_data_ref_para():
     return load_data_jsonbin(jsonbin_secrets_Referenzwerte_Hersteller["api_key"], jsonbin_secrets_Referenzwerte_Hersteller["bin_id"]
 
 ################################################################
-'''
 
 # -------- user login --------
 with open('config.yaml') as file:
