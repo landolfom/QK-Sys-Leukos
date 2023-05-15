@@ -42,6 +42,28 @@ json1 = load_data()
 # JSON in Dataframe umwandeln
 df1=pd.DataFrame(json1)
 
+# -------- user login --------
+with open('config.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+)
+
+fullname, authentication_status, username = authenticator.login('Login', 'main')
+
+if authentication_status == True:   # login successful
+    authenticator.logout('Logout', 'main')   # show logout button
+elif authentication_status == False:
+    st.error('Username/password is incorrect')
+    st.stop()
+elif authentication_status == None:
+    st.warning('Please enter your username and password')
+    st.stop()
+
 
 # Funktionen für Statistik
 
