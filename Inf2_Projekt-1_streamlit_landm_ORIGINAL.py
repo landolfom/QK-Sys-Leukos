@@ -10,7 +10,7 @@ import streamlit as st
 import pandas as pd
 import datetime
 import json
-import matplotlib.pyplot as mp
+import matplotlib.pyplot as plt
 import numpy as np 
 import graphviz
 from jsonbin import load_data_jsonbin, save_data_jsonbin
@@ -65,7 +65,7 @@ def leveyjennings(df, datum):
     colors = ['red' if y >= 3 or y <= -3 else 'yellow' if 2 <= y < 3 or -3 < y <= -2 else 'green' for y in df['s-Bereich']]
     
     # Scatterplot 
-    fig, ax = mp.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(10, 6))
     ax.scatter(df[datum], df['s-Bereich'], c=colors)
     ax.set_xlabel('Datum')
     ax.set_ylim(-3.05, 3.05)
@@ -73,7 +73,7 @@ def leveyjennings(df, datum):
     ax.set_title('Levey Jennings Kurve')
     
     # rotate x-axis labels
-    mp.xticks(rotation=45)
+    plt.xticks(rotation=45)
     return st.pyplot(fig)
 
 def sortieren_nach_Datum_neuste(dataframe,Spalte_Datum_Jahr):
