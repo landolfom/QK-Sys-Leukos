@@ -13,7 +13,7 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np 
 import graphviz
-from jsonbin import load_data_jsonbin, save_data_jsonbin
+from jsonbin import load_data_jsonbin, save_data_jsonbin, load_key, save_key
 import yaml
 from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
@@ -26,11 +26,11 @@ jsonbin_secrets_DB1 = st.secrets["jsonbin_DB1"]
 
 # Funktion zum Laden des Datensatzes der eingegebenen Parameter aus einer JSON-Datei von jsonbin
 def load_data():
-    return load_data_jsonbin(jsonbin_secrets_DB1["api_key"], jsonbin_secrets_DB1["bin_id_DB1"])
+    return load_key(jsonbin_secrets_DB1["api_key"], jsonbin_secrets_DB1["bin_id_DB1"], username)
 
 # Funktion zum Speichern des Datensatzes der eingegebenen Parameter in einer JSON-Datei von jsonbin
 def save_data(data):
-    return save_data_jsonbin(jsonbin_secrets_DB1["api_key"], jsonbin_secrets_DB1["bin_id_DB1"], data)
+    return save_key(jsonbin_secrets_DB1["api_key"], jsonbin_secrets_DB1["bin_id_DB1"], username, data)
         
 # Funktion zum Laden der Referenzwerte gemäss Hersteller aus einer JSON-Datei von jsonbin
 def load_data_ref_para():
