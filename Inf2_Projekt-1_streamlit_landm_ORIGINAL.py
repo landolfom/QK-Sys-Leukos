@@ -34,11 +34,7 @@ def save_data(data):
         
 # Funktion zum Laden der Referenzwerte gemäss Hersteller aus einer JSON-Datei von jsonbin
 def load_data_ref_para():
-    return load_data_jsonbin(jsonbin_secrets_Referenzwerte_Hersteller["api_key"], jsonbin_secrets_Referenzwerte_Hersteller["bin_id"]
-
-################################################################
-
-################################################################    
+    return load_data_jsonbin(jsonbin_secrets_Referenzwerte_Hersteller["api_key"], jsonbin_secrets_Referenzwerte_Hersteller["bin_id"])
        
 # Laden der JSON-Daten
 json1 = load_data()
