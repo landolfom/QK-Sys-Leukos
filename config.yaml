@@ -1,0 +1,17 @@
+credentials:
+  usernames:
+    landolfom:
+      email: landoma@students.zhaw.ch
+      name: Landolfo M
+      password:  # To be replaced with hashed password
+    ballie:
+      email: ballie
+      name: Balli E
+      password:  # To be replaced with hashed password
+    guest:
+      name: Guest
+      password:  # To be replaced with hashed password
+cookie:
+  expiry_days: 30  # number of days until password is asked again
+  key: NA5Q4IC1aqMN2vDeDH3pFjiRPr7FYMGq # Must be string, use https://randomkeygen.com/
+  name: streamlitcookie
