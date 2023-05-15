@@ -37,7 +37,8 @@ def load_data_ref_para():
     return load_data_jsonbin(jsonbin_secrets_Referenzwerte_Hersteller["api_key"], jsonbin_secrets_Referenzwerte_Hersteller["bin_id"]
 
 ################################################################
-
+"""
+                             
 # -------- user login --------
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
@@ -60,7 +61,7 @@ elif authentication_status == None:
     st.warning('Please enter your username and password')
     st.stop()
 
-'''
+"""
 ################################################################    
        
 # Laden der JSON-Daten
