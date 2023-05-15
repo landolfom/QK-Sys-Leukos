@@ -1,11 +1,9 @@
 credentials:
   usernames:
     landolfom:
-      email: landoma@students.zhaw.ch
       name: Landolfo M
       password: $2b$12$lrKtGEWVjChIet6A8e8x6eqEt5VMs6M.pKYL1dGlJBdflLgfugnJ. # To be replaced with hashed password
     ballie:
-      email: ballie
       name: Balli E
       password: $2b$12$.fvzkPUzteu5cDwY3sRJFOEoG/z1Cih83wG7r0aC.hM5fnVZie2Ju # To be replaced with hashed password
     guest:
