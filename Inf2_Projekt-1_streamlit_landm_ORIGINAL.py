@@ -10,9 +10,9 @@ import streamlit as st
 import pandas as pd
 import datetime
 import json
-#import matplotlib.pyplot as mp
+import matplotlib.pyplot as mp
 import numpy as np 
-#import graphviz
+import graphviz
 from jsonbin import load_data_jsonbin, save_data_jsonbin
 #import yaml
 #from yaml.loader import SafeLoader
