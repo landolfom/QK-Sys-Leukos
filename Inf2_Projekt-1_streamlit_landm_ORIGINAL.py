@@ -26,15 +26,15 @@ jsonbin_secrets_DB1 = st.secrets["jsonbin_DB1"]
 
 # Funktion zum Laden des Datensatzes der eingegebenen Parameter aus einer JSON-Datei von jsonbin
 def load_data():
-    return load_data_jsonbin(jsonbin_secrets_DB1["api_key"], jsonbin_secrets_DB1["bin_id"])
+    return load_data_jsonbin(jsonbin_secrets_DB1["api_key"], jsonbin_secrets_DB1["bin_id_DB1"])
 
 # Funktion zum Speichern des Datensatzes der eingegebenen Parameter in einer JSON-Datei von jsonbin
 def save_data(data):
-    return save_data_jsonbin(jsonbin_secrets_DB1["api_key"], jsonbin_secrets_DB1["bin_id"], data)
+    return save_data_jsonbin(jsonbin_secrets_DB1["api_key"], jsonbin_secrets_DB1["bin_id_DB1"], data)
         
 # Funktion zum Laden der Referenzwerte gemäss Hersteller aus einer JSON-Datei von jsonbin
 def load_data_ref_para():
-    return load_data_jsonbin(jsonbin_secrets_Referenzwerte_Hersteller["api_key"], jsonbin_secrets_Referenzwerte_Hersteller["bin_id"])
+    return load_data_jsonbin(jsonbin_secrets_Referenzwerte_Hersteller["api_key"], jsonbin_secrets_Referenzwerte_Hersteller["bin_id_Referenzwerte_Hersteller"])
        
 # Laden der JSON-Daten
 json1 = load_data()
