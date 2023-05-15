@@ -13,15 +13,31 @@ import json
 import matplotlib.pyplot as mp
 import numpy as np 
 import graphviz
-from jsonbin import load_key, save_key
-import yaml
-from yaml.loader import SafeLoader
-import streamlit_authenticator as stauth
+from jsonbin import load_data_jsonbin, save_data_jsonbin
+#import yaml
+#from yaml.loader import SafeLoader
+#import streamlit_authenticator as stauth
+
+#Laden der Daten
 
 # -------- load secrets for jsonbin.io --------
-jsonbin_secrets = st.secrets["jsonbin"]
-api_key = jsonbin_secrets["api_key"]
-bin_id = jsonbin_secrets["bin_id"]
+jsonbin_secrets_Referenzwerte_Hersteller = st.secrets["jsonbin_Referenzwerte_Hersteller"]
+jsonbin_secrets_DB1 = st.secrets["jsonbin_DB1"]
+
+# Funktion zum Laden des Datensatzes der eingegebenen Parameter aus einer JSON-Datei von jsonbin
+def load_data():
+    return load_data_jsonbin(jsonbin_secrets_DB1["api_key"], jsonbin_secrets_DB1["bin_id"])
+
+# Funktion zum Speichern des Datensatzes der eingegebenen Parameter in einer JSON-Datei von jsonbin
+def save_data(data):
+    return save_data_jsonbin(jsonbin_secrets_DB1["api_key"], jsonbin_secrets_DB1["bin_id"], data)
+        
+# Funktion zum Laden der Referenzwerte gemäss Hersteller aus einer JSON-Datei von jsonbin
+def load_data_ref_para():
+    return load_data_jsonbin(jsonbin_secrets_Referenzwerte_Hersteller["api_key"], jsonbin_secrets_Referenzwerte_Hersteller["bin_id"]
+
+################################################################
+'''
 
 # -------- user login --------
 with open('config.yaml') as file:
@@ -45,34 +61,9 @@ elif authentication_status == None:
     st.warning('Please enter your username and password')
     st.stop()
 
-
-### Definition der verwendeten Dateien (JSON-Dateien)
-
-# Parameter (eingegeben)
-DATA_FILE = 'Projekt1_streamlit_start_ORIGINAL.json'
-
-# Referenzwerte der Parameter gemäss Hersteller
-DATA_FILE_REF_PARA = 'Referenzwerte_Hersteller.json'
-
-
-# Funktion zum Laden des Datensatzes der eingegebenen Parameter aus einer JSON-Datei
-def load_data():
-    with open(DATA_FILE, "r", encoding="utf-8") as file:
-        data = json.load(file)
-    return data
-
-# Funktion zum Speichern des Datensatzes der eingegebenen Parameter in einer JSON-Datei
-def save_data(data):
-    with open(DATA_FILE, "w", encoding="utf-8") as file:
-        json.dump(data, file,indent=2,ensure_ascii=False)
-        
-# Funktion zum Laden der Referenzwerte gemäss Hersteller aus einer JSON-Datei
-def load_data_ref_para():
-    with open(DATA_FILE_REF_PARA, "r", encoding="utf-8") as file:
-        data = json.load(file)
-    return data
-
-        
+'''
+################################################################    
+       
 # Laden der JSON-Daten
 json1 = load_data()
 
