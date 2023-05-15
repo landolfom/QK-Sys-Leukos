@@ -3,14 +3,14 @@ credentials:
     landolfom:
       email: landoma@students.zhaw.ch
       name: Landolfo M
-      password:  # To be replaced with hashed password
+      password: $2b$12$lrKtGEWVjChIet6A8e8x6eqEt5VMs6M.pKYL1dGlJBdflLgfugnJ. # To be replaced with hashed password
     ballie:
       email: ballie
       name: Balli E
-      password:  # To be replaced with hashed password
+      password: $2b$12$.fvzkPUzteu5cDwY3sRJFOEoG/z1Cih83wG7r0aC.hM5fnVZie2Ju # To be replaced with hashed password
     guest:
       name: Guest
-      password:  # To be replaced with hashed password
+      password: $2b$12$hAodaErH08BRfVQ3FoqYjeLp1tOslvJ7BkX7t4SNBt5atHeRt9XGy # To be replaced with hashed password
 cookie:
   expiry_days: 30  # number of days until password is asked again
   key: NA5Q4IC1aqMN2vDeDH3pFjiRPr7FYMGq # Must be string, use https://randomkeygen.com/
