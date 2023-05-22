@@ -278,24 +278,24 @@ with tab3:
     input1 = st.selectbox('Parameterauswahl:',('Dropdown','Leukozyten (Sysmex)','Neutrophile (Sysmex)','Lymphozyten (Sysmex)','Monozyten (Sysmex)','Eosinophile (Sysmex)','Basophile (Sysmex)'))
     input2 = st.text_input('Parameterwert in [Anzahl/ul] eingeben:')
     input3 = st.text_input('Lotnummer:')
-    st.text('Visum (automatisch ausgefüllt via user login):'+ username)
-    input4 = username
-    input5 = st.text_input('Kommentar:')
-    st.write(username)
+    input4 = st.text_input('Kommentar:')
+    st.write('Visum: '+ username)
+    input5 = username
+    st.text('(automatisch ausgefüllt via user login)')
         
     # Button um Werte in JSON-Datei einzufügen           
     if st.button('Werte eingeben'):
         
         # Überprüfung der Eingabewerte und anfügen in JSON-Datei, wenn Kriterien erfüllt
-        if input1!='Dropdown' and input2.isdigit() and len(input2)>0 and len(input4)>0 and input3.isdigit() and len(input3)>0:
+        if input1!='Dropdown' and input2.isdigit() and len(input2)>0 and len(input5)>0 and input3.isdigit() and len(input3)>0:
            new_row_in_json1 = {
                'Datum/Zeit': datetime.datetime.now().replace(microsecond=0).strftime("%Y-%m-%d %H:%M:%S"),
                'Parameter (Gerät)': input1,
                'Wert': input2,
                'Einheit': 'Anzahl/ul',
                'Lotnummer': input3,
-               'Visum': input4,
-               'Kommentar': input5
+               'Visum': input5,
+               'Kommentar': input4
                }
        
            json1.append(new_row_in_json1)
