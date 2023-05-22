@@ -278,8 +278,7 @@ with tab3:
     input1 = st.selectbox('Parameterauswahl:',('Dropdown','Leukozyten (Sysmex)','Neutrophile (Sysmex)','Lymphozyten (Sysmex)','Monozyten (Sysmex)','Eosinophile (Sysmex)','Basophile (Sysmex)'))
     input2 = st.text_input('Parameterwert in [Anzahl/ul] eingeben:')
     input3 = st.text_input('Lotnummer:')
-    st.write('Visum eingeben:')
-    st.write(username)
+    st.text('Visum:', username, '(automatisch ausgefüllt via user login))
     input4 = username
     input5 = st.text_input('Kommentar:')
     st.write(username)
