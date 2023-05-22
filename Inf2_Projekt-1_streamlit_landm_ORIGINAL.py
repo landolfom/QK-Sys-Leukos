@@ -393,7 +393,7 @@ with tab5:
     df1=pd.DataFrame(json1)
     
     st.title("Gesamt-System")
-    st.dataframe(df1)
+    st.dataframe(df1[::-1])
     
 ### Anleitung Tab
 with tab6:
