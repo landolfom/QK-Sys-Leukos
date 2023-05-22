@@ -283,7 +283,7 @@ with tab3:
     st.write('')
     st.write('Visum: '+ username)
     input5 = username
-    st.text('(automatisch ausgefüllt via user login)')
+    st.write('(automatisch ausgefüllt via user login)')
     st.write('')
         
     # Button um Werte in JSON-Datei einzufügen           
