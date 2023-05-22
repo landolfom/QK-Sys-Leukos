@@ -17,6 +17,7 @@ from jsonbin import load_data_jsonbin, save_data_jsonbin, load_key, save_key
 import yaml
 from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
+import textwrap
 
 #Laden der Daten
 
@@ -279,9 +280,22 @@ with tab3:
     input2 = st.text_input('Parameterwert in [Anzahl/ul] eingeben:')
     input3 = st.text_input('Lotnummer:')
     input4 = st.text_input('Kommentar:')
+    
     st.write('Visum: '+ username)
     input5 = username
     st.text('(automatisch ausgefüllt via user login)')
+    
+    # Define the text to be word-wrapped
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim feugiat odio, a placerat justo. Fusce id sapien lobortis, commodo nisl eu, tristique turpis."
+
+# Set the width of the word wrap
+width = 30
+
+# Word-wrap the text using the textwrap module
+wrapped_text = textwrap.fill(text, width)
+
+# Display the wrapped text in Streamlit
+st.text(wrapped_text)
         
     # Button um Werte in JSON-Datei einzufügen           
     if st.button('Werte eingeben'):
