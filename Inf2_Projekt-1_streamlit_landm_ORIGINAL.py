@@ -335,7 +335,7 @@ with tab4:
         df_nach_Parameter_aussortiert=df_Werten[df_Werten["Parameter (Gerät)"]==Parameter_option]
         
         # Dataframe generieren.
-        st.dataframe(df_nach_Parameter_aussortiert)
+        st.dataframe(df_nach_Parameter_aussortiert[::-1])
         
         # Damit die s-Bereichen berechnet werden kann müssen die Hersteller angegebenen Mittelwerten und Standabweichung aus dem json file geholt werden.
         Hersteller_Angaben= load_data_ref_para()
