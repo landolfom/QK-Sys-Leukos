@@ -289,7 +289,7 @@ with tab3:
     text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim feugiat odio, a placerat justo. Fusce id sapien lobortis, commodo nisl eu, tristique turpis."
 
 # Set the width of the word wrap
-    width = 30
+    width = 300
 
 # Word-wrap the text using the textwrap module
     wrapped_text = textwrap.fill(text, width)
