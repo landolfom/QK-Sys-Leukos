@@ -281,10 +281,9 @@ with tab3:
     input3 = st.text_input('Lotnummer:')
     input4 = st.text_input('Kommentar:')
     st.write('')
-    st.write('Visum:')
+    st.write('Visum (automatisch ausgefüllt):')
     st.write(username)
     input5 = username
-    st.write('(automatisch ausgefüllt via user login)')
     st.write('')
         
     # Button um Werte in JSON-Datei einzufügen           
