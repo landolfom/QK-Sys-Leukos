@@ -92,7 +92,7 @@ def delete_all_searched_rows(df, column_name):
     value = input6
     matching_rows = df[df[column_name].str.contains(value)]
     
-    if delete_button == True and len(value) == 0:
+    if delete_button == True and len(value) == 0 or matching_rows == 0:
         st.warning("Keine Parameter eingegeben!")
         return df 
 
