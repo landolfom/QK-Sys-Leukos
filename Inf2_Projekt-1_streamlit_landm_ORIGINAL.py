@@ -100,8 +100,7 @@ def delete_all_searched_rows(df, column_name):
         st.success("Zeilen erfolgreich gelöscht.")
         st.dataframe(df.tail())
         return df
-    
-    return df
+
 
 # Funktionen für Statistik
 
