@@ -92,20 +92,6 @@ def delete_all_searched_rows(df, column_name):
     if len(input6) == 0:
         st.warning("Keine Parameter eingegeben oder gefunden!")
         st.stop()
-    else not matching_rows.empty:
-        st.text("Sind Sie sicher diese Parameter zu löschen?")
-        confirm_yes = st.button("JA")
-        confirm_no = st.button("NEIN")
-        if confirm_yes == True:
-            #df = df.drop(matching_rows.index)
-            print("Rows deleted successfully.")
-            return df
-        elif confirm_no == True:
-            print("Rows not deleted.")
-            return df
-        else:
-            st.error("Something went wrong!!!")
-            return df
         
 
 # Funktionen für Statistik
