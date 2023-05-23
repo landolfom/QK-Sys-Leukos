@@ -235,7 +235,7 @@ def Beurteilung_Status(dataframe, Spalte_Datum, Spalte_s_Bereich):
 
 
 # Tabs Controller
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Home", "Status", "Input", "Werte", "Gesamt-System", "Anleitung"])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Home", "Status", "Input/Delete", "Werte", "Gesamt-System", "Anleitung"])
 
 
 ### Home Tab
@@ -334,6 +334,14 @@ with tab3:
         else:
             st.error("Error: Nicht alle benötigten Daten sind ausgefüllt!", icon="⚠️")
 
+            
+    st.title("Daten löschen") 
+    
+    st.text('Letzter Eintrag:')
+    json1_letzte_eingegebenen_Daten_alles = load_data()
+    df_letzte_eingegebenen_Daten_sortiert = pd.DataFrame(json1_letzte_eingegebenen_Daten_alles).tail(1)
+    st.dataframe(df_letzte_eingegebenen_Daten_sortiert)
+        
     if st.button('Letzter Eintrag löschen'):
         delete_last()
     
