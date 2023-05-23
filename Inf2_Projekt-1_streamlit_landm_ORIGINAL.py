@@ -374,6 +374,7 @@ with tab3:
         
     if st.button('Letzter Eintrag löschen'):
         delete_last()
+        st.success('Letzter Eintrag wurde erfolgreich gelöscht.')
     
     
 ### Werte Tab
