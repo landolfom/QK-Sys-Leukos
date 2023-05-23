@@ -95,10 +95,8 @@ def delete_all_searched_rows(df, column_name):
         st.warning("Keine Parameter entsprechen den Suchparametern!")
     return df 
 
-    if delete_button == True and len(value) > 0: 
+    else delete_button == True and len(value) > 0: 
         #df = df.drop(matching_rows.index)
-        st.write("Gelöschte Zeilen:")
-        st.write(matching_rows)
         st.success("Zeilen erfolgreich gelöscht.")  
     return df
         
