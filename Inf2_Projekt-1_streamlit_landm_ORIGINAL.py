@@ -96,7 +96,7 @@ def delete_all_searched_rows(df, column_name):
         st.warning("Keine Parameter eingegeben!")
         return df
     if delete_button == True and len(matching_rows) == 0:
-        st.warning("Keine Parameter den Suchparametern entsprechend gefunden!")
+        st.warning("Es wurden keine Parameter entsprechend der Sucheeingabe gefunden! Somit können keine Daten gelöscht werden.")
         return df
     if delete_button == True and len(value) > 0:
         st.text('Sollen die Daten wirklich gelöscht werden?')
