@@ -81,7 +81,7 @@ def search_and_display_row(df, column_name):
     if len(matching_rows) > 0:
         print("Matching rows:")
         for index, row in matching_rows.iterrows():
-            st.dataframe(row)
+            st.write(row)
     else:
         print("No matching rows found.")
         
