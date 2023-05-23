@@ -80,10 +80,9 @@ def search_and_display_row(df, column_name):
     matching_rows = df[df[column_name].str.contains(value)]
     if len(input6) == 0:
         st.text("Geben Sie Suchparameter ein")
-    elif len(matching_rows) > 0:
+    elif not matching_rows.empty:
         st.text("Matching rows:")
-        for index, row in matching_rows.iterrows():
-            st.dataframe(row)
+        st.dataframe(matching_rows)
     else:
         st.text("No matching rows found.")
         
