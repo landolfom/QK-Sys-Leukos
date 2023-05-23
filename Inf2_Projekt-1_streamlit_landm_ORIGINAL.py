@@ -447,7 +447,7 @@ with tab5:
         
         df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
         st.dataframe(df1)
-        json1=df1.to_json("json1.json",orient="records")
+        json1 = df1.to_json()
         with open('json1.json', 'w') as file:
             file.write(json1)
         save_data(json1)
