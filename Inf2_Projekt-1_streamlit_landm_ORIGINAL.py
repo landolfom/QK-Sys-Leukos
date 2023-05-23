@@ -441,7 +441,7 @@ with tab5:
         # JSON in Dataframe umwandeln
         df1=pd.DataFrame(json1)
     
-        input6 = st.text_input()
+        input6 = st.text_input('')
         search_and_display_row(df1, 'Datum/Zeit')
         delete_button = st.button('Gefundene Daten löschen')
         
