@@ -333,13 +333,6 @@ with tab3:
            save_data(json1)
            st.text('Daten wurden hochgeladen')
            st.write('')
-           st.write('')
-           st.text('Ihre eingegebenen Daten:')
-           
-           json1_letzte_eingegebenen_Daten_alles = load_data()
-           df_letzte_eingegebenen_Daten_sortiert = pd.DataFrame(json1_letzte_eingegebenen_Daten_alles).tail(1)
-        
-           st.dataframe(df_letzte_eingegebenen_Daten_sortiert)
            
         # Wenn die Kriterien nicht erfüllt sind geschied bei jedem definietem Fall folgendes
         elif input2.isdigit()==False:
