@@ -371,8 +371,9 @@ with tab3:
     json1_letzte_eingegebenen_Daten_alles = load_data()
     df_letzte_eingegebenen_Daten_sortiert = pd.DataFrame(json1_letzte_eingegebenen_Daten_alles).tail(1)
     st.dataframe(df_letzte_eingegebenen_Daten_sortiert)
-        
-    if st.button('Letzter Eintrag löschen'):
+    last_entry = st.button('Letzter Eintrag löschen')
+    
+    if last_entry:
         delete_last()
         st.success('Letzter Eintrag wurde erfolgreich gelöscht.')
     
