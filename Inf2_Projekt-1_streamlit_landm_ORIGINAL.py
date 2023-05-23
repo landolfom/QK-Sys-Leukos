@@ -102,6 +102,9 @@ def delete_all_searched_rows(df, column_name):
         if JA_button:
             df = df.drop(matching_rows.index)
             st.success("Parameter wurden erfolgreich gelöscht.")
+            json_data = df1.to_json(orient='records')
+            json_dict = json.loads(json_data)
+            save_data(json_dict)
             return df
         if NEIN_button:
             st.success('Parameter werden NICHT gelöscht')
@@ -458,10 +461,10 @@ with tab5:
         delete_button = st.button('Gefundene Daten löschen')
         
         df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
-        if JA_button:
-            json_data = df1.to_json(orient='records')
-            json_dict = json.loads(json_data)
-            save_data(json_dict)
+        #if JA_button:
+           # json_data = df1.to_json(orient='records')
+           # json_dict = json.loads(json_data)
+           # save_data(json_dict)
     
     
     # Laden der JSON-Daten
