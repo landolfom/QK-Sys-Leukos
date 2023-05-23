@@ -320,8 +320,8 @@ with tab3:
         
            st.dataframe(df_letzte_eingegebenen_Daten_sortiert)
             
-   if st.button('Letzter Eintrag löschen'):
-       delete_last()
+    if st.button('Letzter Eintrag löschen'):
+        delete_last()
            
         # Wenn die Kriterien nicht erfüllt sind geschied bei jedem definietem Fall folgendes
         elif input2.isdigit()==False:
