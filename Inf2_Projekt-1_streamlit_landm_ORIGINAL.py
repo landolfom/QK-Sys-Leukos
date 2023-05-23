@@ -81,6 +81,7 @@ def delete_row_by_value(df, column_name):
     if len(row_index) > 0:
         st.dataframe(matching_rows)
         if st.button('Gesuchte Parameter löschen'):
+            st.write('Test')
             #df_copy.drop(row_index, inplace=True)  # Drop the row with the matching value
             #df_copy.reset_index(drop=True, inplace=True)  # Reset the index after deleting the row
         return df_copy
