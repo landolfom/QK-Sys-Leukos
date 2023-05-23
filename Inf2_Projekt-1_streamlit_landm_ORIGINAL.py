@@ -81,10 +81,31 @@ def search_and_display_row(df, column_name):
     if len(input6) == 0:
         st.text("Geben Sie Suchparameter ein")
     elif not matching_rows.empty:
-        st.text("Matching rows:")
+        st.text("Gefundene Parameter:")
         st.dataframe(matching_rows)
     else:
-        st.text("No matching rows found.")
+        st.text("Keine Parameter entsprechen den Suchparametern!")
+        
+def delete_all_searched_rows(df, column_name):
+    value = input6
+    matching_rows = df[df[column_name].str.contains(value)]
+    if len(input6) == 0:
+        st.warning("Keine Parameter eingegeben oder gefunden!")
+        st.stop()
+    else not matching_rows.empty:
+        st.text("Sind Sie sicher diese Parameter zu löschen?")
+        confirm_yes = st.button("JA")
+        confirm_no = st.button("NEIN")
+        if confirm_yes == True:
+            #df = df.drop(matching_rows.index)
+            print("Rows deleted successfully.")
+            return df
+        elif confirm_no == True:
+            print("Rows not deleted.")
+            return df
+        else:
+            st.error("Something went wrong!!!")
+            return df
         
 
 # Funktionen für Statistik
