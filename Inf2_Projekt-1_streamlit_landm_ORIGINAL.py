@@ -78,20 +78,28 @@ def delete_last():
 def search_and_display_row(df, column_name):
     value = input6
     matching_rows = df[df[column_name].str.contains(value)]
-    if len(input6) == 0:
+    if len(value) == 0:
         st.text("Geben Sie Suchparameter ein")
     elif not matching_rows.empty:
         st.text("Gefundene Parameter:")
         st.dataframe(matching_rows)
     else:
         st.text("Keine Parameter entsprechen den Suchparametern!")
-        
+
+# Löschen der gefundenen Daten        
 def delete_all_searched_rows(df, column_name):
     value = input6
     matching_rows = df[df[column_name].str.contains(value)]
-    if len(input6) == 0:
-        st.warning("Keine Parameter eingegeben oder gefunden!")
-        st.stop()
+    if delete_button == True:
+        if len(value) == 0 or matching_rows.empty:
+            st.warning("Keine Parameter entsprechen den Suchparametern!")
+        return df          
+        else:
+          #df = df.drop(matching_rows.index)
+          st.write("Gelöschte Zeilen:")
+          st.write(matching_rows)
+          st.success("Zeilen erfolgreich gelöscht.")  
+        return df
         
 
 # Funktionen für Statistik
@@ -434,6 +442,8 @@ with tab5:
     
         input6 = st.text_input('Suche Parameter via Datum/Zeit')
         search_and_display_row(df1, 'Datum/Zeit')
+        delete_button = st.button('Gefundene Daten löschen')
+        delete_all_searched_rows(df1, 'Datum/Zeit')
     
     
     # Laden der JSON-Daten
