@@ -443,9 +443,11 @@ with tab5:
         input6 = st.text_input('Suche Parameter via Datum/Zeit')
         search_and_display_row(df1, 'Datum/Zeit')
         delete_button = st.button('Gefundene Daten löschen')
-        delete_all_searched_rows(df1, 'Datum/Zeit')
-        df1.to_json('json1.json')
-        save_data(json1)
+        
+        if delete_button:
+            df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
+            df1.to_json('json1.json')
+            save_data(json1)
     
     
     # Laden der JSON-Daten
