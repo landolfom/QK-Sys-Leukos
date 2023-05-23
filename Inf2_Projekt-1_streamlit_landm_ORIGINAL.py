@@ -99,7 +99,6 @@ def delete_all_searched_rows(df, column_name):
         st.text('Sind Sie sicher, dass die Daten gelöscht werden sollen?')
         JA_button=st.button('JA')
         NEIN_button=st.button('NEIN')
-        return df 
         
     if JA_button:
         df = df.drop(matching_rows.index)
