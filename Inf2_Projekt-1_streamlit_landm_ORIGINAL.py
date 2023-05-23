@@ -99,7 +99,8 @@ def delete_all_searched_rows(df, column_name):
         #df = df.drop(matching_rows.index)
         st.success("Zeilen erfolgreich gelöscht.")  
         return df
-        
+    
+    return df
 
 # Funktionen für Statistik
 
