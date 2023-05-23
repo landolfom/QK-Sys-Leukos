@@ -96,7 +96,7 @@ def delete_all_searched_rows(df, column_name):
         st.warning("Keine Parameter eingegeben!")
         return df
     if delete_button == True and len(matching_row) == 0:
-        st.warning("Keine Parameter den Suchparametern entsprechend gefunden!)
+        st.warning("Keine Parameter den Suchparametern entsprechend gefunden!")
         return df
     if delete_button == True and len(value) > 0:
         st.text('Sollen die Daten wirklich gelöscht werden?')
@@ -371,7 +371,7 @@ with tab3:
     st.header("Letzter Eintrag löschen") 
     st.write('')
     
-    last_entry = st.button('Letzter Eintrag löschen')
+    last_entry = st.button('Löschen')
     if last_entry:
         delete_last()
         st.success('Letzter Eintrag wurde erfolgreich gelöscht.')
