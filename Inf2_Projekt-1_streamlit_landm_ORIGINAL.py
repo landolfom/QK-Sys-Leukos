@@ -95,10 +95,21 @@ def delete_all_searched_rows(df, column_name):
         st.warning("Keine Parameter entsprechen den Suchparametern!")
         return df 
 
-    if delete_button == True and len(value) > 0: 
-        df = df.drop(matching_rows.index)
-        st.success("Parameter wurden erfolgreich gelöscht.")
-        return df
+    if delete_button == True and len(value) > 0:
+        st.text('Sind Sie sicher, dass die Daten gelöschte werden sollen?')
+        JA_button=st.button('JA')
+        NEIN_button=st.button('NEIN')
+        if JA_button:
+            df = df.drop(matching_rows.index)
+            st.success("Parameter wurden erfolgreich gelöscht.")
+        if NEIN_button:
+            st.success('Parameter werden NICHT gelöscht')
+        return df    
+    
+   # if delete_button == True and len(value) > 0: 
+   #     df = df.drop(matching_rows.index)
+   #     st.success("Parameter wurden erfolgreich gelöscht.")
+   #     return df
 
 
 # Funktionen für Statistik
