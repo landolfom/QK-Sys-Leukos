@@ -459,10 +459,10 @@ with tab5:
         delete_button = st.button('Gefundene Daten löschen')
         
         df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
-        if JA_button:
-            json_data = df1.to_json(orient='records')
-            json_dict = json.loads(json_data)
-            save_data(json_dict)
+        
+        json_data = df1.to_json(orient='records')
+        json_dict = json.loads(json_data)
+        save_data(json_dict)
     
     
     # Laden der JSON-Daten
