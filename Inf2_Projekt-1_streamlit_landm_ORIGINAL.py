@@ -444,12 +444,11 @@ with tab5:
         search_and_display_row(df1, 'Datum/Zeit')
         delete_button = st.button('Gefundene Daten löschen')
         
-        
         df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
         st.dataframe(df1)
-        json_data = df1.to_json(orient='records')
-        json_dict = json.loads(json_data)
-        save_data(json_dict)
+    json_data = df1.to_json(orient='records')
+    json_dict = json.loads(json_data)
+    save_data(json_dict)
     
     
     # Laden der JSON-Daten
@@ -467,12 +466,10 @@ with tab6:
     with st.expander("Werte eingeben"):
         st.header("Werte eingeben")
         st.write('Um Ihre Werte einzugeben, müssen Sie als erstes den gewünschten Parameter auswählen, den gemessenen Wert eingeben und Ihre Initialen hinzufügen. Danach klicken Sie auf "Werte eingeben". Bei fehlenden oder vertauschten Angaben, taucht eine Fehlermeldung auf.')
-        st.image("https://scontent-zrh1-1.xx.fbcdn.net/v/t39.30808-6/340814580_873671940393634_1930207743141895922_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=74hh1K-tpiAAX_dQzoh&_nc_ht=scontent-zrh1-1.xx&oh=00_AfCQG_zqqI7NJN8-41VorgQg0CPARzhZDMl7nkF5JMNXvA&oe=643C77EC")
         st.caption("Bildqulle: Eigene Aufnahme")
     with st.expander("Verlauf der letzten 10 Werte"):
         st.header("Verlauf der letzten 10 Werte")
         st.write("Für die Beurteilung der Qualitätskontrolle, können Sie hier die einzelnen Parmeter anwählen und somit kontrollieren. Die letzten 10 Werte sind in Form einer Tabelle und einer Levey-Jennings-Kurve ersichtlich.")
-        st.image("https://scontent-zrh1-1.xx.fbcdn.net/v/t39.30808-6/340783719_963336444835418_4174430397612721810_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=3pP_VpZG-akAX8v9P3q&_nc_ht=scontent-zrh1-1.xx&oh=00_AfC8ma9lLG9MWWWhghZqxzYikAmos74eLo_QirIXQcCKJg&oe=643C24E7")
         st.caption("Bildqulle: Eigene Aufnahme")
         st.write("Unterhalb der Levey-Jennings-Kurve wird mittels einer Meldung nach der Westgard-Regel beurteilt und dies farbig dargestellt.")
         st.markdown("Falls die Regel: :red[2-2s Regel], :red[1-3s Regel] und :red[R4s Regel] verletzt werden, können Sie mit folgendem Flussdiagramm arbeiten.")
