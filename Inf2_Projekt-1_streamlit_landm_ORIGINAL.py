@@ -72,6 +72,19 @@ def delete_last():
     res = save_data(data_to_delete)
     if 'message' in res:
         st.error(res['message'])
+        
+def delete_row_by_value(df, column_name):
+    value = input6
+    df_copy = df.copy()  # Create a copy of the DataFrame to avoid modifying the original
+    row_index = df_copy.index[df_copy[column_name] == value]  # Find the row index that matches the value
+    if len(row_index) > 0:
+        st.dataframe(row_index)
+        #df_copy.drop(row_index, inplace=True)  # Drop the row with the matching value
+        #df_copy.reset_index(drop=True, inplace=True)  # Reset the index after deleting the row
+        return df_copy
+    else:
+        print(f"No rows found with value '{value}'.")
+        return df_copy        
 
 # Funktionen für Statistik
 
@@ -344,6 +357,14 @@ with tab3:
         
     if st.button('Letzter Eintrag löschen'):
         delete_last()
+    
+    # Laden der JSON-Daten
+    json1 = load_data()
+    # JSON in Dataframe umwandeln
+    df1=pd.DataFrame(json1)
+    
+    input6 = st.text_input('Suche Parameter via Datum/Zeit')
+    delete_row_by_value(df1, 'Datum/Zeit')
     
 ### Werte Tab
 with tab4:
