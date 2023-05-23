@@ -235,7 +235,7 @@ def Beurteilung_Status(dataframe, Spalte_Datum, Spalte_s_Bereich):
 
 
 # Tabs Controller
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Home", "Status", "Input/Delete", "Werte", "Gesamt-System", "Anleitung"])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Home", "Status", "Input", "Werte", "Gesamt-System", "Anleitung"])
 
 
 ### Home Tab
@@ -334,7 +334,7 @@ with tab3:
         else:
             st.error("Error: Nicht alle benötigten Daten sind ausgefüllt!", icon="⚠️")
 
-            
+    st.write('')        
     st.header("Daten löschen") 
     
     st.text('Letzter Eintrag:')
