@@ -78,7 +78,9 @@ def delete_last():
 def search_and_display_row(df, column_name):
     value = input6
     matching_rows = df[df[column_name].str.contains(value)]
-    if len(matching_rows) > 0:
+    if len(matching_row) == 0 :
+        st.text("Geben Sie einen Datum und/oder Zeit ein")
+    elif len(matching_rows) > 0:
         print("Matching rows:")
         for index, row in matching_rows.iterrows():
             st.write(row)
