@@ -85,6 +85,7 @@ def search_and_display_row(df, column_name):
         st.dataframe(matching_rows)
     else:
         st.text("Keine Parameter entsprechen den Suchparametern!")
+    return df
 
 # Löschen der gefundenen Daten        
 def delete_all_searched_rows(df, column_name):
@@ -102,14 +103,11 @@ def delete_all_searched_rows(df, column_name):
         if JA_button:
             df = df.drop(matching_rows.index)
             st.success("Parameter wurden erfolgreich gelöscht.")
-            json_data = df1.to_json(orient='records')
-            json_dict = json.loads(json_data)
-            save_data(json_dict)
             return df
         if NEIN_button:
             st.success('Parameter werden NICHT gelöscht')
             return df    
-        return df
+        
    # if delete_button == True and len(value) > 0: 
    #     df = df.drop(matching_rows.index)
    #     st.success("Parameter wurden erfolgreich gelöscht.")
@@ -457,14 +455,14 @@ with tab5:
         df1=pd.DataFrame(json1)
     
         input6 = st.text_input('')
-        search_and_display_row(df1, 'Datum/Zeit')
+        df1 = search_and_display_row(df1, 'Datum/Zeit')
         delete_button = st.button('Gefundene Daten löschen')
         
         df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
-        #if JA_button:
-           # json_data = df1.to_json(orient='records')
-           # json_dict = json.loads(json_data)
-           # save_data(json_dict)
+        if JA_button:
+            json_data = df1.to_json(orient='records')
+            json_dict = json.loads(json_data)
+            save_data(json_dict)
     
     
     # Laden der JSON-Daten
