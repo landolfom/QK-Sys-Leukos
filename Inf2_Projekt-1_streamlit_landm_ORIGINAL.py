@@ -91,7 +91,7 @@ def delete_all_searched_rows(df, column_name):
     value = input6
     matching_rows = df[df[column_name].str.contains(value)]
     
-    if delete_button == True and len(value) == 0 or matching_rows.empty:
+    if delete_button == True and len(value) == 0:
         st.warning("Keine Parameter entsprechen den Suchparametern!")
         return df 
 
