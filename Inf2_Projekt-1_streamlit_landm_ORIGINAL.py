@@ -102,6 +102,7 @@ def delete_all_searched_rows(df, column_name):
         if JA_button:
             df = df.drop(matching_rows.index)
             st.success("Parameter wurden erfolgreich gelöscht.")
+            return df
         if NEIN_button:
             st.success('Parameter werden NICHT gelöscht')
             return df    
