@@ -78,14 +78,14 @@ def delete_last():
 def search_and_display_row(df, column_name):
     value = input6
     matching_rows = df[df[column_name].str.contains(value)]
-    if input6 == 0:
+    if len(input6) == 0:
         st.text("Geben Sie Suchparameter ein")
     elif len(matching_rows) > 0:
-        print("Matching rows:")
+        st.text("Matching rows:")
         for index, row in matching_rows.iterrows():
-            st.write(row)
+            st.dataframe(row)
     else:
-        print("No matching rows found.")
+        st.text("No matching rows found.")
         
 
 # Funktionen für Statistik
