@@ -308,8 +308,8 @@ with tab3:
            st.write('')
            st.write('Ihre eingegebenen Daten:')
            
-           df_letzte_eingegebenen_Daten_alles = load_data()
-           df_letzte_eingegebenen_Daten_sortiert = df_letzte_eingegebenen_Daten_alles.tail(1)
+           json1_letzte_eingegebenen_Daten_alles = load_data()
+           df_letzte_eingegebenen_Daten_sortiert = pd.DataFrame(json1_letzte_eingegebenen_Daten_alles).tail(1)
         
            st.dataframe(df_letzte_eingegebenen_Daten_sortiert)
            
