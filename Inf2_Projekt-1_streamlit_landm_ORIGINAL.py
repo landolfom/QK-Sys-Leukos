@@ -347,7 +347,7 @@ with tab3:
        
            json1.append(new_row_in_json1)
            save_data(json1)
-           st.text('Daten wurden hochgeladen')
+           st.success('Daten wurden hochgeladen')
            st.write('')
            
         # Wenn die Kriterien nicht erfüllt sind geschied bei jedem definietem Fall folgendes
