@@ -65,6 +65,13 @@ elif authentication_status == None:
     st.warning('Please enter your username and password')
     st.stop()
 
+def delete_last():
+    # delete last entry
+    data_to_delete = load_data()
+    data_to_delete.pop()
+    res = save_data(data_to_delete)
+    if 'message' in res:
+        st.error(res['message'])
 
 # Funktionen für Statistik
 
@@ -314,12 +321,7 @@ with tab3:
            st.dataframe(df_letzte_eingegebenen_Daten_sortiert)
             
            if st.button('Letzter Eintrag löschen'):
-                   # delete last entry
-               data_to_delete = load_data()
-               data_to_delete.pop()
-               res = save_data(data_to_delete)
-               if 'message' in res:
-                   st.error(res['message'])
+               delete_last()
            
         # Wenn die Kriterien nicht erfüllt sind geschied bei jedem definietem Fall folgendes
         elif input2.isdigit()==False:
