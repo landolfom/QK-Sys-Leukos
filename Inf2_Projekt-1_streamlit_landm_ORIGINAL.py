@@ -447,8 +447,7 @@ with tab5:
         
         df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
         st.dataframe(df1)
-        df1.to_json('json1.json')
-        st.json(json1)
+        df1.to_json('json1')
         save_data(json1)
     
     
