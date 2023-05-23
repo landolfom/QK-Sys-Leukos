@@ -108,11 +108,6 @@ def delete_all_searched_rows(df, column_name):
         return df
     if delete_button == False:
         return df
-        
-   # if delete_button == True and len(value) > 0: 
-   #     df = df.drop(matching_rows.index)
-   #     st.success("Parameter wurden erfolgreich gelöscht.")
-   #     return df
 
 
 # Funktionen für Statistik
