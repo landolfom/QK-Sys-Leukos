@@ -446,9 +446,10 @@ with tab5:
         
         df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
         st.dataframe(df1)
-    json_data = df1.to_json(orient='records')
-    json_dict = json.loads(json_data)
-    save_data(json_dict)
+        if delete_button:
+            json_data = df1.to_json(orient='records')
+            json_dict = json.loads(json_data)
+            save_data(json_dict)
     
     
     # Laden der JSON-Daten
