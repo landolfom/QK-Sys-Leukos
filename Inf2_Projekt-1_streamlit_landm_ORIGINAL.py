@@ -319,8 +319,6 @@ with tab3:
            df_letzte_eingegebenen_Daten_sortiert = pd.DataFrame(json1_letzte_eingegebenen_Daten_alles).tail(1)
         
            st.dataframe(df_letzte_eingegebenen_Daten_sortiert)
-           if st.button('Letzter Eintrag löschen'):
-               delete_last()
            
         # Wenn die Kriterien nicht erfüllt sind geschied bei jedem definietem Fall folgendes
         elif input2.isdigit()==False:
@@ -335,7 +333,9 @@ with tab3:
                 st.error("Error: Lotnummer-Eingabe ist keine Zahl!", icon="🚨")        
         else:
             st.error("Error: Nicht alle benötigten Daten sind ausgefüllt!", icon="⚠️")
-    
+
+    if st.button('Letzter Eintrag löschen'):
+        delete_last()
     
 ### Werte Tab
 with tab4:
