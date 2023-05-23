@@ -80,10 +80,8 @@ def delete_row_by_value(df, column_name):
     matching_rows = df[df[column_name] == value]
     if len(row_index) > 0:
         st.dataframe(matching_rows)
-        if delete_button:
-            st.write('Test')
-            #df_copy.drop(row_index, inplace=True)  # Drop the row with the matching value
-            #df_copy.reset_index(drop=True, inplace=True)  # Reset the index after deleting the row
+        #df_copy.drop(row_index, inplace=True)  # Drop the row with the matching value
+        #df_copy.reset_index(drop=True, inplace=True)  # Reset the index after deleting the row
         return df_copy
     else:
         print(f"No rows found with value '{value}'.")
@@ -361,14 +359,6 @@ with tab3:
     if st.button('Letzter Eintrag löschen'):
         delete_last()
     
-    # Laden der JSON-Daten
-    json1 = load_data()
-    # JSON in Dataframe umwandeln
-    df1=pd.DataFrame(json1)
-    
-    input6 = st.text_input('Suche Parameter via Datum/Zeit')
-    delete_row_by_value(df1, 'Datum/Zeit')
-    delete_button=st.button('Gesuchte Parameter löschen')
     
 ### Werte Tab
 with tab4:
@@ -435,6 +425,16 @@ with tab4:
         
 ### Gesamt-System Tab
 with tab5:
+    
+    with st.expander('Suche Parameter mit Datum/Zeit'):
+        # Laden der JSON-Daten
+        json1 = load_data()
+        # JSON in Dataframe umwandeln
+        df1=pd.DataFrame(json1)
+    
+        input6 = st.text_input('Suche Parameter via Datum/Zeit')
+        delete_row_by_value(df1, 'Datum/Zeit')
+    
     
     # Laden der JSON-Daten
     json1 = load_data()
