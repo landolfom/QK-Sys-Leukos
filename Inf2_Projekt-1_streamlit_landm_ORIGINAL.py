@@ -95,7 +95,7 @@ def delete_all_searched_rows(df, column_name):
     if delete_button == True and len(value) == 0:
         st.warning("Keine Parameter eingegeben!")
         return df
-    if delete_button == True and len(matching_row) == 0:
+    if delete_button == True and len(matching_rows) == 0:
         st.warning("Keine Parameter den Suchparametern entsprechend gefunden!")
         return df
     if delete_button == True and len(value) > 0:
