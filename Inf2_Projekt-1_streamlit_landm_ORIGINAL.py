@@ -98,7 +98,6 @@ def delete_all_searched_rows(df, column_name):
     if delete_button == True and len(value) > 0: 
         df = df.drop(matching_rows.index)
         st.success("Zeilen erfolgreich gelöscht.")
-        st.dataframe(df.tail())
         return df
 
 
@@ -445,7 +444,6 @@ with tab5:
         delete_button = st.button('Gefundene Daten löschen')
         
         df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
-        st.dataframe(df1)
         if delete_button:
             json_data = df1.to_json(orient='records')
             json_dict = json.loads(json_data)
