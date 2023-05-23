@@ -98,7 +98,7 @@ def delete_all_searched_rows(df, column_name):
     if delete_button == True and len(value) > 0: 
         df = df.drop(matching_rows.index)
         st.success("Zeilen erfolgreich gelöscht.")
-        st.dataframe(df1.tail())
+        st.dataframe(df.tail())
         return df
     
     return df
