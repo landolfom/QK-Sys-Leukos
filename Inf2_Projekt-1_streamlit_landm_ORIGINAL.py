@@ -349,7 +349,7 @@ with tab3:
             st.error("Error: Nicht alle benötigten Daten sind ausgefüllt!", icon="⚠️")
 
     st.write('')        
-    st.header("Daten löschen") 
+    st.header("Falscher letzter Eintrag löschen") 
     
     st.text('Letzter Eintrag:')
     json1_letzte_eingegebenen_Daten_alles = load_data()
