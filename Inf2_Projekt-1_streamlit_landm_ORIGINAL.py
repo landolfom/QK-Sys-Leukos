@@ -311,7 +311,7 @@ with tab3:
            df_letzte_eingegebenen_Daten_alles = load_data()
            df_letzte_eingegebenen_Daten_sortiert = df_letzte_eingegebenen_Daten_alles.tail(1)
         
-           st.write(df_letzte_eingegebenen_Daten_sortiert)
+           st.dataframe(df_letzte_eingegebenen_Daten_sortiert)
            
            
         # Wenn die Kriterien nicht erfüllt sind geschied bei jedem definietem Fall folgendes
