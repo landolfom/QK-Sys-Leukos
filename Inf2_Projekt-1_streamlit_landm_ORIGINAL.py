@@ -97,7 +97,7 @@ def delete_all_searched_rows(df, column_name):
 
     if delete_button == True and len(value) > 0: 
         df = df.drop(matching_rows.index)
-        st.success("Zeilen erfolgreich gelöscht.")
+        st.success("Parameter wurden erfolgreich gelöscht.")
         return df
 
 
@@ -433,13 +433,15 @@ with tab4:
 ### Gesamt-System Tab
 with tab5:
     
+    st.title("Gesamt-System")
+    
     with st.expander('Suche Parameter mit Datum/Zeit'):
         # Laden der JSON-Daten
         json1 = load_data()
         # JSON in Dataframe umwandeln
         df1=pd.DataFrame(json1)
     
-        input6 = st.text_input('Suche Parameter via Datum/Zeit')
+        input6 = st.text_input()
         search_and_display_row(df1, 'Datum/Zeit')
         delete_button = st.button('Gefundene Daten löschen')
         
@@ -455,8 +457,8 @@ with tab5:
 
     # JSON in Dataframe umwandeln
     df1=pd.DataFrame(json1)
-    
-    st.title("Gesamt-System")
+   
+    st.header("Alle Parameter")
     st.dataframe(df1[::-1])
     
 ### Anleitung Tab
