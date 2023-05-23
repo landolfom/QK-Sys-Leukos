@@ -74,9 +74,9 @@ def delete_last():
     if 'message' in res:
         st.error(res['message'])
         
-# Suchen von Daten via Datum/Zeit Spalte und Anzeige dieser Daten        
+# Suchen von Daten via Datum/Zeit Spalte und Anzeige dieser Daten (mit input6 Feld)
 def search_and_display_row(df, column_name):
-    value = input("Enter the value to search: ")
+    value = input6
     matching_rows = df[df[column_name].str.contains(value)]
     if len(matching_rows) > 0:
         print("Matching rows:")
