@@ -80,7 +80,7 @@ def delete_row_by_value(df, column_name):
     matching_rows = df[df[column_name] == value]
     if len(row_index) > 0:
         st.dataframe(matching_rows)
-        if st.button('Gesuchte Parameter löschen'):
+        if delete_button:
             st.write('Test')
             #df_copy.drop(row_index, inplace=True)  # Drop the row with the matching value
             #df_copy.reset_index(drop=True, inplace=True)  # Reset the index after deleting the row
@@ -368,6 +368,7 @@ with tab3:
     
     input6 = st.text_input('Suche Parameter via Datum/Zeit')
     delete_row_by_value(df1, 'Datum/Zeit')
+    delete_button=st.button('Gesuchte Parameter löschen')
     
 ### Werte Tab
 with tab4:
