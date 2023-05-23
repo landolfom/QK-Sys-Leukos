@@ -364,7 +364,8 @@ with tab3:
         else:
             st.error("Error: Nicht alle benötigten Daten sind ausgefüllt!", icon="⚠️")
 
-    st.write('')        
+    st.write('')
+    st.write('')
     st.header("Letzter Eintrag löschen") 
     st.write('')
     
