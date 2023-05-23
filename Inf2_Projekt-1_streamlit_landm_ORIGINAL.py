@@ -65,6 +65,7 @@ elif authentication_status == None:
     st.warning('Please enter your username and password')
     st.stop()
 
+# Löschen des letzten Eintrages    
 def delete_last():
     # delete last entry
     data_to_delete = load_data()
@@ -73,19 +74,17 @@ def delete_last():
     if 'message' in res:
         st.error(res['message'])
         
-def delete_row_by_value(df, column_name):
-    value = input6
-    df_copy = df.copy()  # Create a copy of the DataFrame to avoid modifying the original
-    row_index = df_copy.index[df_copy[column_name] == value]  # Find the row index that matches the value
-    matching_rows = df[df[column_name] == value]
-    if len(row_index) > 0:
-        st.dataframe(matching_rows)
-        #df_copy.drop(row_index, inplace=True)  # Drop the row with the matching value
-        #df_copy.reset_index(drop=True, inplace=True)  # Reset the index after deleting the row
-        return df_copy
+# Suchen von Daten via Datum/Zeit Spalte und Anzeige dieser Daten        
+def search_and_display_row(df, column_name):
+    value = input("Enter the value to search: ")
+    matching_rows = df[df[column_name].str.contains(value)]
+    if len(matching_rows) > 0:
+        print("Matching rows:")
+        for index, row in matching_rows.iterrows():
+            st.dataframe(row)
     else:
-        print(f"No rows found with value '{value}'.")
-        return df_copy        
+        print("No matching rows found.")
+        
 
 # Funktionen für Statistik
 
@@ -433,7 +432,7 @@ with tab5:
         df1=pd.DataFrame(json1)
     
         input6 = st.text_input('Suche Parameter via Datum/Zeit')
-        delete_row_by_value(df1, 'Datum/Zeit')
+        search_and_display_row(df1, 'Datum/Zeit')
     
     
     # Laden der JSON-Daten
