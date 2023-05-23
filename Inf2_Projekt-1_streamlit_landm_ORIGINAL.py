@@ -77,8 +77,9 @@ def delete_row_by_value(df, column_name):
     value = input6
     df_copy = df.copy()  # Create a copy of the DataFrame to avoid modifying the original
     row_index = df_copy.index[df_copy[column_name] == value]  # Find the row index that matches the value
+    matching_rows = df[df[column_name] == value]
     if len(row_index) > 0:
-        st.dataframe(row_index)
+        st.dataframe(matching_rows)
         #df_copy.drop(row_index, inplace=True)  # Drop the row with the matching value
         #df_copy.reset_index(drop=True, inplace=True)  # Reset the index after deleting the row
         return df_copy
