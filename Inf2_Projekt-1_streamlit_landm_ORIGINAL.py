@@ -95,7 +95,7 @@ def delete_all_searched_rows(df, column_name):
         st.warning("Keine Parameter eingegeben!")
         return df 
 
-    if delete_button == True and len(matching_rows) > 0:
+    if delete_button == True and len(value) > 0:
         st.text('Sind Sie sicher, dass die Daten gelöscht werden sollen?')
         JA_button=st.button('JA')
         NEIN_button=st.button('NEIN')
@@ -367,7 +367,7 @@ with tab3:
             st.error("Error: Nicht alle benötigten Daten sind ausgefüllt!", icon="⚠️")
 
     st.write('')        
-    st.header("Falscher letzter Eintrag löschen") 
+    st.header("Letzter Eintrag löschen") 
     
     st.text('Letzter Eintrag:')
     json1_letzte_eingegebenen_Daten_alles = load_data()
