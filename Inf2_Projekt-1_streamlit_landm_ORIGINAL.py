@@ -507,11 +507,14 @@ with tab5:
                         json_dict = json.loads(json_data)
                         save_data(json_dict)
                         st.success("Parameter wurden erfolgreich gelöscht.")
-
+    
                     if NEIN_button:
                         st.session_state['NEIN_button_state'] = True
                         st.success('Die Daten werden NICHT gelöscht und bleiben erhalten')
 
+    for key in st.session_state.keys():
+        del st.session_state[key]
+    
     # Laden der JSON-Daten
     json1 = load_data()
 
