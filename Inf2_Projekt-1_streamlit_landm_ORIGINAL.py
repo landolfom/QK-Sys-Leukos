@@ -87,33 +87,10 @@ def search_and_display_row(df, column_name):
         st.warning("Keine Parameter entsprechen den Suchparametern.")
     return df
 
-# Löschen der gefundenen Daten        
-def delete_all_searched_rows(df, column_name):
-    value = input6
-    matching_rows = df[df[column_name].str.contains(value)]
-    
-    if len(value) == 0:
-        st.warning("Keine Parameter eingegeben!")
-        return df
-    elif len(matching_rows) == 0:
-        st.warning("Es wurden keine Parameter entsprechend der Sucheeingabe gefunden! Somit können keine Daten gelöscht werden.")
-        return df
-    elif len(value) > 0:
-        st.text('Sollen die Daten wirklich gelöscht werden?')
-        JA_button=st.button('JA')
-        NEIN_button=st.button('NEIN')
-        if JA_button:
-            value = input6
-            matching_rows = df[df[column_name].str.contains(value)]
-            df = df.drop(matching_rows.index)
-            st.success("Parameter wurden erfolgreich gelöscht.")
-            return df
-        elif NEIN_button:
-            st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
-            return df              
-    else:
-        st.error("Es ist etwas schief gelaufen!")
-        return df
+# Löschen der Session State
+def delete_session_state():
+    for key in st.session_state.keys():
+        del st.session_state[key]
 
 
 # Funktionen für Statistik
@@ -507,13 +484,13 @@ with tab5:
                         json_dict = json.loads(json_data)
                         save_data(json_dict)
                         st.success("Parameter wurden erfolgreich gelöscht.")
+                        delete_session_state()
     
                     if NEIN_button:
                         st.session_state['NEIN_button_state'] = True
                         st.success('Die Daten werden NICHT gelöscht und bleiben erhalten')
-
-    for key in st.session_state.keys():
-        del st.session_state[key]
+                        delete_session_state()
+                   
     
     # Laden der JSON-Daten
     json1 = load_data()
