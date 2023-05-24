@@ -480,7 +480,7 @@ with tab5:
                     JA_button=st.button('JA')
                     NEIN_button=st.button('NEIN')
                     if JA_button:
-                        df = df.drop(matching_rows.index)
+                        df1 = df1.drop(matching_rows.index)
                         json_data = df1.to_json(orient='records')
                         json_dict = json.loads(json_data)
                         save_data(json_dict)
