@@ -459,7 +459,7 @@ with tab5:
         # JSON in Dataframe umwandeln
         df1=pd.DataFrame(json1)
     
-        input6 = st.text_input('')
+        input6 = st.text_input('Geben Sie Suchparameter ein:')
         search_button = st.button('Suchen')
         delete_button = st.button('Gefundene Daten löschen')
         
