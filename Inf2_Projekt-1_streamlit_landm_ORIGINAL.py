@@ -486,29 +486,29 @@ with tab5:
                 
                 if delete_button:    
                     if st.session_state['delete_button_state']:
-                    value = input6
-                    matching_rows = df1[df1["Datum/Zeit"].str.contains(value)]
+                        value = input6
+                        matching_rows = df1[df1["Datum/Zeit"].str.contains(value)]
 
-                    if len(value) == 0:
-                        st.warning("Keine Parameter eingegeben!")
-                    elif len(matching_rows) == 0:
-                        st.warning("Es wurden keine Parameter entsprechend der Sucheeingabe gefunden! Somit können keine Daten gelöscht werden.")
-                    elif len(value) > 0:
-                        st.text('Sollen die Daten wirklich gelöscht werden?')
-                        JA_button = st.button('JA')
-                        NEIN_button = st.button('NEIN')
+                        if len(value) == 0:
+                            st.warning("Keine Parameter eingegeben!")
+                        elif len(matching_rows) == 0:
+                            st.warning("Es wurden keine Parameter entsprechend der Sucheeingabe gefunden! Somit können keine Daten gelöscht werden.")
+                        elif len(value) > 0:
+                            st.text('Sollen die Daten wirklich gelöscht werden?')
+                            JA_button = st.button('JA')
+                            NEIN_button = st.button('NEIN')
 
-                        if JA-button:
-                            if st.session_state['JA_button_state']:
-                                df1 = df1.drop(matching_rows.index)
-                                json_data = df1.to_json(orient='records')
-                                json_dict = json.loads(json_data)
-                                save_data(json_dict)
-                                st.success("Parameter wurden erfolgreich gelöscht.")
+                            if JA-button:
+                                if st.session_state['JA_button_state']:
+                                    df1 = df1.drop(matching_rows.index)
+                                    json_data = df1.to_json(orient='records')
+                                    json_dict = json.loads(json_data)
+                                    save_data(json_dict)
+                                    st.success("Parameter wurden erfolgreich gelöscht.")
 
-                        if NEIN_button:        
-                            if st.session_state['NEIN_button_state']:
-                                st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
+                            if NEIN_button:        
+                                if st.session_state['NEIN_button_state']:
+                                    st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
 
     # Laden der JSON-Daten
     json1 = load_data()
