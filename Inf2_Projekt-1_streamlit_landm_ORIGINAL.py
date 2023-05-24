@@ -79,12 +79,12 @@ def search_and_display_row(df, column_name):
     value = input6
     matching_rows = df[df[column_name].str.contains(value)]
     if len(value) == 0:
-        st.text("Geben Sie Suchparameter ein.")
+        st.info("Geben Sie Suchparameter ein.")
     elif not matching_rows.empty:
         st.text("Gefundene Parameter:")
         st.dataframe(matching_rows)
     else:
-        st.text("Keine Parameter entsprechen den Suchparametern.")
+        st.warning("Keine Parameter entsprechen den Suchparametern.")
     return df
 
 # Löschen der gefundenen Daten        
