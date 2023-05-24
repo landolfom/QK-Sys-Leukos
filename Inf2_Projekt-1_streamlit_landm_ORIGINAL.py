@@ -467,6 +467,7 @@ with tab5:
         if search_button: 
             search_and_display_row(df1, 'Datum/Zeit')
             delete_button = st.button('Gefundene Daten löschen')
+            
         if delete_button:
             value = input6
             matching_rows = df1[df1["Datum/Zeit"].str.contains(value)]
@@ -479,12 +480,14 @@ with tab5:
                 st.text('Sollen die Daten wirklich gelöscht werden?')
                 JA_button=st.button('JA')
                 NEIN_button=st.button('NEIN')
+                
         if JA_button:
             df1 = df1.drop(matching_rows.index)
             json_data = df1.to_json(orient='records')
             json_dict = json.loads(json_data)
             save_data(json_dict)
             st.success("Parameter wurden erfolgreich gelöscht.")
+            
         if NEIN_button:
             st.success("Parameter werden NICHT gelöscht und verbleiben im System.")             
  
