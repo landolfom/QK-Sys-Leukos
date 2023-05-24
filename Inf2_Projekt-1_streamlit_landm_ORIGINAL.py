@@ -89,8 +89,10 @@ def search_and_display_row(df, column_name):
 
 # Löschen der Session State
 def delete_session_state():
-    for key in st.session_state.keys(search_button_state, delete_button_state, JA_button_state, NEIN_button_state):
-        del st.session_state[key]
+    keys_to_delete = ['search_button_state', 'delete_button_state', 'JA_button_state', 'NEIN_button_state']
+    for key in keys_to_delete:
+        if key in st.session_state:
+            del st.session_state[key]
 
 
 # Funktionen für Statistik
