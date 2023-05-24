@@ -499,8 +499,8 @@ with tab5:
                         st.success('Die Daten werden NICHT gelöscht und bleiben erhalten')
                         delete_fin=st.button('Löschen Beenden')
                         
-                        if delete_fin:
-                            delete_session_state()
+    if delete_fin:
+        delete_session_state()
     
     # Laden der JSON-Daten
     json1 = load_data()
