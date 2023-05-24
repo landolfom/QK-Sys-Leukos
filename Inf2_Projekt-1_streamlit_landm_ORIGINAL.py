@@ -92,13 +92,13 @@ def delete_all_searched_rows(df, column_name):
     value = input6
     matching_rows = df[df[column_name].str.contains(value)]
     
-    if delete_button == True and len(value) == 0:
+    if len(value) == 0:
         st.warning("Keine Parameter eingegeben!")
         return df
-    elif delete_button == True and len(matching_rows) == 0:
+    elif len(matching_rows) == 0:
         st.warning("Es wurden keine Parameter entsprechend der Sucheeingabe gefunden! Somit können keine Daten gelöscht werden.")
         return df
-    elif delete_button == True and len(value) > 0:
+    elif len(value) > 0:
         st.text('Sollen die Daten wirklich gelöscht werden?')
         JA_button=st.button('JA')
         NEIN_button=st.button('NEIN')
@@ -109,7 +109,8 @@ def delete_all_searched_rows(df, column_name):
             st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
             #return df
         return df               
-    elif delete_button == False:
+    else:
+        st.error("Es ist etwas schief gelaufen!")
         return df
 
 
@@ -463,9 +464,8 @@ with tab5:
         delete_button = st.button('Gefundene Daten löschen')
         st.write('')
         
-        df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
-        
         if delete_button:
+            df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
             json_data = df1.to_json(orient='records')
             json_dict = json.loads(json_data)
             save_data(json_dict)
