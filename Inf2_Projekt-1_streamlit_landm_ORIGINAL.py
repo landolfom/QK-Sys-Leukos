@@ -103,12 +103,14 @@ def delete_all_searched_rows(df, column_name):
         JA_button=st.button('JA')
         NEIN_button=st.button('NEIN')
         if JA_button:
+            value = input6
+            matching_rows = df[df[column_name].str.contains(value)]
             df = df.drop(matching_rows.index)
             st.success("Parameter wurden erfolgreich gelöscht.")
+            return df
         elif NEIN_button:
             st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
-            #return df
-        return df               
+            return df              
     else:
         st.error("Es ist etwas schief gelaufen!")
         return df
@@ -463,15 +465,46 @@ with tab5:
         search_button = st.button('Suchen')
         
         if search_button: 
-            df1 = search_and_display_row(df1, 'Datum/Zeit')
+            search_and_display_row(df1, 'Datum/Zeit')
             delete_button = st.button('Gefundene Daten löschen')
             if delete_button:
-                df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
-                json_data = df1.to_json(orient='records')
-                json_dict = json.loads(json_data)
-                save_data(json_dict)
-        
+                value = input6
+                matching_rows = df1[df1[column_name].str.contains(value)]
     
+                if len(value) == 0:
+                    st.warning("Keine Parameter eingegeben!")
+                elif len(matching_rows) == 0:
+                    st.warning("Es wurden keine Parameter entsprechend der Sucheeingabe gefunden! Somit können keine Daten gelöscht werden.")
+                elif len(value) > 0:
+                    st.text('Sollen die Daten wirklich gelöscht werden?')
+                    JA_button=st.button('JA')
+                    NEIN_button=st.button('NEIN')
+                    if JA_button:
+                        df = df.drop(matching_rows.index)
+                        st.success("Parameter wurden erfolgreich gelöscht.")
+                    elif NEIN_button:
+                        st.success("Parameter werden NICHT gelöscht und verbleiben im System.")             
+                else:
+                    st.error("Es ist etwas schief gelaufen!")
+
+'''                    
+        if delete_button:
+            df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
+  
+        if JA_button:
+            value = input6
+            matching_rows = df[df[column_name].str.contains(value)]
+            df = df.drop(matching_rows.index)
+            st.success("Parameter wurden erfolgreich gelöscht.")
+            json_data = df1.to_json(orient='records')
+            json_dict = json.loads(json_data)
+            save_data(json_dict)
+            return df
+        
+        if NEIN_button:
+            st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
+            return df
+'''    
     
     # Laden der JSON-Daten
     json1 = load_data()
