@@ -109,7 +109,7 @@ def delete_all_searched_rows(df, column_name):
             st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
             return df
         return df               
-    else delete_button == False:
+    elif delete_button == False:
         return df
 
 
