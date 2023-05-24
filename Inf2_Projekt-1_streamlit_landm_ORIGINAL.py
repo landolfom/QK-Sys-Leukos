@@ -469,7 +469,7 @@ with tab5:
             delete_button = st.button('Gefundene Daten löschen')
             if delete_button:
                 value = input6
-                matching_rows = df1[df1[column_name].str.contains(value)]
+                matching_rows = df1[df1["Datum/Zeit"].str.contains(value)]
     
                 if len(value) == 0:
                     st.warning("Keine Parameter eingegeben!")
