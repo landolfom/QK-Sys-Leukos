@@ -493,14 +493,14 @@ with tab5:
                         json_dict = json.loads(json_data)
                         save_data(json_dict)
                         st.success("Parameter wurden erfolgreich gelöscht.")
-                        delete_fin=st.button('Löschen Beenden')
+                        delete_session_state()
+                        st.button('Löschen Beenden')
                     if NEIN_button:
                         st.session_state['NEIN_button_state'] = True
                         st.success('Die Daten werden NICHT gelöscht und bleiben erhalten')
-                        delete_fin=st.button('Löschen Beenden')
-                        
-    if delete_fin:
-        delete_session_state()
+                        delete_session_state()
+                        st.button('Löschen Beenden')
+
     
     # Laden der JSON-Daten
     json1 = load_data()
