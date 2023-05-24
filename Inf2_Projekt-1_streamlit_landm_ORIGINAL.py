@@ -18,6 +18,7 @@ import yaml
 from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
 import textwrap
+from sessionstate import SessionState
 
 #Laden der Daten
 
@@ -42,6 +43,11 @@ json1 = load_data()
 
 # JSON in Dataframe umwandeln
 df1=pd.DataFrame(json1)
+
+# Define the SessionState class
+class SessionState:
+    def __init__(self, **kwargs):
+        self.__dict__.update(kwargs)
 
 # -------- user login --------
 with open('config.yaml') as file:
@@ -457,6 +463,8 @@ with tab5:
     json1 = load_data()
     # JSON in Dataframe umwandeln
     df1=pd.DataFrame(json1)
+    
+    state = SessionState(search_button=False, delete_button=False, JA_button=False, NEIN_button=False)
         
     with st.expander('Suche Parameter mit Datum/Zeit'):
     
