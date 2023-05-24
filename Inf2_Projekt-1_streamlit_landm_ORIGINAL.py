@@ -79,7 +79,7 @@ def search_and_display_row(df, column_name):
     value = input6
     matching_rows = df[df[column_name].str.contains(value)]
     if len(value) == 0:
-        st.info("Geben Sie Suchparameter ein.")
+        st.warning("Es wurden keine Suchparameter eingegeben. Geben Sie Suchparameter ein.")
     elif not matching_rows.empty:
         st.text("Gefundene Parameter:")
         st.dataframe(matching_rows)
