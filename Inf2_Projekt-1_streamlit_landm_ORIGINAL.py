@@ -460,10 +460,6 @@ with tab5:
     df1=pd.DataFrame(json1)
         
     with st.expander('Suche Parameter mit Datum/Zeit'):
-        # Laden der JSON-Daten
-        json1 = load_data()
-        # JSON in Dataframe umwandeln
-        df1=pd.DataFrame(json1)
     
         input6 = st.text_input('Geben Sie Suchparameter ein:')
         search_button = st.button('Suchen')
