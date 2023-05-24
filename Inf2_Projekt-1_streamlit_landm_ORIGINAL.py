@@ -463,6 +463,9 @@ with tab5:
     
         input6 = st.text_input('Geben Sie Suchparameter ein:')
         search_button = st.button('Suchen')
+        delete_button = None
+        JA_button = None
+        NEIN_button = None
         
         if search_button: 
             search_and_display_row(df1, 'Datum/Zeit')
