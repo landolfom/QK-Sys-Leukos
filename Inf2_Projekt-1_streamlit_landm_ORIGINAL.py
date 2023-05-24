@@ -489,25 +489,7 @@ with tab5:
                         st.success("Parameter werden NICHT gelöscht und verbleiben im System.")             
                 else:
                     st.error("Es ist etwas schief gelaufen!")
-
-'''                    
-        if delete_button:
-            df1 = delete_all_searched_rows(df1, 'Datum/Zeit')
-  
-        if JA_button:
-            value = input6
-            matching_rows = df[df[column_name].str.contains(value)]
-            df = df.drop(matching_rows.index)
-            st.success("Parameter wurden erfolgreich gelöscht.")
-            json_data = df1.to_json(orient='records')
-            json_dict = json.loads(json_data)
-            save_data(json_dict)
-            return df
-        
-        if NEIN_button:
-            st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
-            return df
-'''    
+ 
     
     # Laden der JSON-Daten
     json1 = load_data()
