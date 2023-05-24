@@ -69,10 +69,17 @@ elif authentication_status == None:
 def delete_last():
     # delete last entry
     data_to_delete = load_data()
-    data_to_delete.pop()
-    res = save_data(data_to_delete)
-    if 'message' in res:
-        st.error(res['message'])
+    if data_to_delete:
+        # Remove the last entry
+        data_to_delete.pop()
+        
+        # Save the updated data
+        res = save_data(data_to_delete)
+        
+        if 'message' in res:
+            st.error(res['message'])
+    else:
+        st.warning('No data available to delete.')
         
 # Suchen von Daten via Datum/Zeit Spalte und Anzeige dieser Daten (mit input6 Feld)
 def search_and_display_row(df, column_name):
