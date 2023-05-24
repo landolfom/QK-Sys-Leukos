@@ -95,10 +95,10 @@ def delete_all_searched_rows(df, column_name):
     if delete_button == True and len(value) == 0:
         st.warning("Keine Parameter eingegeben!")
         return df
-    if delete_button == True and len(matching_rows) == 0:
+    elif delete_button == True and len(matching_rows) == 0:
         st.warning("Es wurden keine Parameter entsprechend der Sucheeingabe gefunden! Somit können keine Daten gelöscht werden.")
         return df
-    if delete_button == True and len(value) > 0:
+    elif delete_button == True and len(value) > 0:
         st.text('Sollen die Daten wirklich gelöscht werden?')
         JA_button=st.button('JA')
         NEIN_button=st.button('NEIN')
@@ -109,7 +109,7 @@ def delete_all_searched_rows(df, column_name):
             st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
             return df
         return df               
-    if delete_button == False:
+    else delete_button == False:
         return df
 
 
