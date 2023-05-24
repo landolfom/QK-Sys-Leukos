@@ -454,7 +454,11 @@ with tab4:
 with tab5:
     
     st.title("Gesamt-System")
-    
+    # Laden der JSON-Daten
+    json1 = load_data()
+    # JSON in Dataframe umwandeln
+    df1=pd.DataFrame(json1)
+        
     with st.expander('Suche Parameter mit Datum/Zeit'):
         # Laden der JSON-Daten
         json1 = load_data()
@@ -495,11 +499,7 @@ with tab5:
                         st.success("Parameter werden NICHT gelöscht und verbleiben im System.")             
  
     
-    # Laden der JSON-Daten
-    json1 = load_data()
 
-    # JSON in Dataframe umwandeln
-    df1=pd.DataFrame(json1)
    
     st.header("Alle Parameter")
     st.dataframe(df1[::-1])
