@@ -452,7 +452,6 @@ with tab4:
         
 ### Gesamt-System Tab
 with tab5:
-    
     st.title("Gesamt-System")
     # Laden der JSON-Daten
     json1 = load_data()
@@ -463,13 +462,12 @@ with tab5:
     
         input6 = st.text_input('Geben Sie Suchparameter ein:')
         search_button = st.button('Suchen')
-        delete_button = None
-        JA_button = None
-        NEIN_button = None
+        delete_button = st.button('Gefundene Daten löschen')
+        JA_button = st.button('JA')
+        NEIN_button = st.button('NEIN')
         
         if search_button: 
             search_and_display_row(df1, 'Datum/Zeit')
-            delete_button = st.button('Gefundene Daten löschen')
             
         if delete_button:
             value = input6
@@ -481,8 +479,6 @@ with tab5:
                 st.warning("Es wurden keine Parameter entsprechend der Sucheeingabe gefunden! Somit können keine Daten gelöscht werden.")
             elif len(value) > 0:
                 st.text('Sollen die Daten wirklich gelöscht werden?')
-                JA_button=st.button('JA')
-                NEIN_button=st.button('NEIN')
                 
         if JA_button:
             df1 = df1.drop(matching_rows.index)
@@ -492,13 +488,11 @@ with tab5:
             st.success("Parameter wurden erfolgreich gelöscht.")
             
         if NEIN_button:
-            st.success("Parameter werden NICHT gelöscht und verbleiben im System.")             
- 
+            st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
     
-
-   
     st.header("Alle Parameter")
     st.dataframe(df1[::-1])
+
     
 ### Anleitung Tab
 with tab6:
