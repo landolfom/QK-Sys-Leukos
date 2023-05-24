@@ -459,6 +459,8 @@ with tab5:
     df1=pd.DataFrame(json1)
     
     # Initialize session state if not already initialized
+    "st.session_state object:", st.session_state
+    
     if 'search_button_state' not in st.session_state:
         st.session_state['search_button_state'] = False
     if 'delete_button_state' not in st.session_state:
