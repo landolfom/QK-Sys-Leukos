@@ -461,7 +461,6 @@ with tab5:
     
         input6 = st.text_input('Geben Sie Suchparameter ein:')
         search_button = st.button('Suchen')
-        delete_button = st.button('Gefundene Daten löschen')
         
         if search_button: 
             df1 = search_and_display_row(df1, 'Datum/Zeit')
