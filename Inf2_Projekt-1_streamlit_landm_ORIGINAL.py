@@ -481,6 +481,9 @@ with tab5:
                     NEIN_button=st.button('NEIN')
                     if JA_button:
                         df = df.drop(matching_rows.index)
+                        json_data = df1.to_json(orient='records')
+                        json_dict = json.loads(json_data)
+                        save_data(json_dict)
                         st.success("Parameter wurden erfolgreich gelöscht.")
                     elif NEIN_button:
                         st.success("Parameter werden NICHT gelöscht und verbleiben im System.")             
