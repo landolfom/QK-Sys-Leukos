@@ -460,8 +460,12 @@ with tab5:
         df1=pd.DataFrame(json1)
     
         input6 = st.text_input('')
-        df1 = search_and_display_row(df1, 'Datum/Zeit')
+        search_button = st.button('Suchen')
         delete_button = st.button('Gefundene Daten löschen')
+        
+        if search_button: 
+            df1 = search_and_display_row(df1, 'Datum/Zeit')  
+        
         st.write('')
         
         if delete_button:
