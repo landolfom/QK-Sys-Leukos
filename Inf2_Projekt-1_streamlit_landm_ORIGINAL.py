@@ -18,7 +18,6 @@ import yaml
 from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
 import textwrap
-from sessionstate import SessionState
 
 #Laden der Daten
 
@@ -43,11 +42,6 @@ json1 = load_data()
 
 # JSON in Dataframe umwandeln
 df1=pd.DataFrame(json1)
-
-# Define the SessionState class
-class SessionState:
-    def __init__(self, **kwargs):
-        self.__dict__.update(kwargs)
 
 # -------- user login --------
 with open('config.yaml') as file:
@@ -464,40 +458,58 @@ with tab5:
     # JSON in Dataframe umwandeln
     df1=pd.DataFrame(json1)
     
-    state = SessionState(search_button=False, delete_button=False, JA_button=False, NEIN_button=False)
+    # Initialize session state if not already initialized
+    if 'search_button_state' not in st.session_state:
+        st.session_state['search_button_state'] = False
+    if 'delete_button_state' not in st.session_state:
+        st.session_state['delete_button_state'] = False
+    if 'JA_button_state' not in st.session_state:
+        st.session_state['JA_button_state'] = False
+    if 'NEIN_button_state' not in st.session_state:
+        st.session_state['NEIN_button_state'] = False
         
     with st.expander('Suche Parameter mit Datum/Zeit'):
-    
+        # Laden der JSON-Daten
+        json1 = load_data()
+        # JSON in Dataframe umwandeln
+        df1 = pd.DataFrame(json1)
+
         input6 = st.text_input('Geben Sie Suchparameter ein:')
-        search_button = st.button('Suchen')
-        delete_button = st.button('Gefundene Daten löschen')
-        JA_button = st.button('JA')
-        NEIN_button = st.button('NEIN')
-        
-        if search_button: 
+        st.session_state['search_button_state'] = st.button('Suchen')
+
+        if st.session_state['search_button_state']:
             search_and_display_row(df1, 'Datum/Zeit')
-            
-        if delete_button:
-            value = input6
-            matching_rows = df1[df1["Datum/Zeit"].str.contains(value)]
-    
-            if len(value) == 0:
-                st.warning("Keine Parameter eingegeben!")
-            elif len(matching_rows) == 0:
-                st.warning("Es wurden keine Parameter entsprechend der Sucheeingabe gefunden! Somit können keine Daten gelöscht werden.")
-            elif len(value) > 0:
-                st.text('Sollen die Daten wirklich gelöscht werden?')
-                
-        if JA_button:
-            df1 = df1.drop(matching_rows.index)
-            json_data = df1.to_json(orient='records')
-            json_dict = json.loads(json_data)
-            save_data(json_dict)
-            st.success("Parameter wurden erfolgreich gelöscht.")
-            
-        if NEIN_button:
-            st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
-    
+            st.session_state['delete_button_state'] = st.button('Gefundene Daten löschen')
+
+            if st.session_state['delete_button_state']:
+                value = input6
+                matching_rows = df1[df1["Datum/Zeit"].str.contains(value)]
+
+                if len(value) == 0:
+                    st.warning("Keine Parameter eingegeben!")
+                elif len(matching_rows) == 0:
+                    st.warning("Es wurden keine Parameter entsprechend der Sucheeingabe gefunden! Somit können keine Daten gelöscht werden.")
+                elif len(value) > 0:
+                    st.text('Sollen die Daten wirklich gelöscht werden?')
+                    st.session_state['JA_button_state'] = st.button('JA')
+                    st.session_state['NEIN_button_state'] = st.button('NEIN')
+
+                    if st.session_state['JA_button_state']:
+                        df1 = df1.drop(matching_rows.index)
+                        json_data = df1.to_json(orient='records')
+                        json_dict = json.loads(json_data)
+                        save_data(json_dict)
+                        st.success("Parameter wurden erfolgreich gelöscht.")
+
+                    if st.session_state['NEIN_button_state']:
+                        st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
+
+    # Laden der JSON-Daten
+    json1 = load_data()
+
+    # JSON in Dataframe umwandeln
+    df1 = pd.DataFrame(json1)
+
     st.header("Alle Parameter")
     st.dataframe(df1[::-1])
 
