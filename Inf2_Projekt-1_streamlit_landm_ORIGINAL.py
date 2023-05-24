@@ -59,10 +59,10 @@ fullname, authentication_status, username = authenticator.login('Login', 'main')
 if authentication_status == True:   # login successful
     authenticator.logout('Logout', 'main')   # show logout button
 elif authentication_status == False:
-    st.error('Username/password is incorrect')
+    st.error('Username oder Passwort ist nicht korrekt')
     st.stop()
 elif authentication_status == None:
-    st.warning('Please enter your username and password')
+    st.warning('Username und Passwort eingeben')
     st.stop()
 
 # Löschen des letzten Eintrages    
