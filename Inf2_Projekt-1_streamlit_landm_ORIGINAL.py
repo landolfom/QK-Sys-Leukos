@@ -469,7 +469,7 @@ with tab5:
         st.session_state['JA_button_state'] = False
     if 'NEIN_button_state' not in st.session_state:
         st.session_state['NEIN_button_state'] = False
-        
+"""        
     with st.expander('Suche Parameter mit Datum/Zeit'):
         # Laden der JSON-Daten
         json1 = load_data()
@@ -505,7 +505,7 @@ with tab5:
 
                     if st.session_state['NEIN_button_state']:
                         st.success("Parameter werden NICHT gelöscht und verbleiben im System.")
-
+"""
     # Laden der JSON-Daten
     json1 = load_data()
 
