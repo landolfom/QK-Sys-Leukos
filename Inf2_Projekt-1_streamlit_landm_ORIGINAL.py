@@ -483,7 +483,7 @@ with tab5:
                     st.warning("Es wurden keine Parameter entsprechend der Sucheeingabe gefunden! Somit können keine Daten gelöscht werden.")
                 elif len(value) > 0:
                     st.text('Sollen die Daten wirklich gelöscht werden?')
-                    col1, col2 = st.columns(2)
+                    col1, col2 = st.columns(10)
                     with col1:
                         JA_button = st.button('JA')
                     with col2:
