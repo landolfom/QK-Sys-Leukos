@@ -483,26 +483,23 @@ with tab5:
                     st.warning("Es wurden keine Parameter entsprechend der Sucheeingabe gefunden! Somit können keine Daten gelöscht werden.")
                 elif len(value) > 0:
                     st.text('Sollen die Daten wirklich gelöscht werden?')
-                    col1, col2 = st.columns(10)
-                    with col1:
-                        JA_button = st.button('JA')
-                    with col2:
-                        NEIN_button = st.button('NEIN')
+                    JA_button = st.button('JA')
+                    NEIN_button = st.button('NEIN')
 
-                        if JA_button:
-                            st.session_state['JA_button_state'] = True
-                            df1 = df1.drop(matching_rows.index)
-                            json_data = df1.to_json(orient='records')
-                            json_dict = json.loads(json_data)
-                            save_data(json_dict)
-                            st.success("Parameter wurden erfolgreich gelöscht.")
-                            delete_session_state()
-                            st.button('Löschen Beenden')
-                        if NEIN_button:
-                            st.session_state['NEIN_button_state'] = True
-                            st.success('Die Daten werden NICHT gelöscht und bleiben erhalten')
-                            delete_session_state()
-                            st.button('Löschen Beenden')
+                    if JA_button:
+                        st.session_state['JA_button_state'] = True
+                        df1 = df1.drop(matching_rows.index)
+                        json_data = df1.to_json(orient='records')
+                        json_dict = json.loads(json_data)
+                        save_data(json_dict)
+                        st.success("Parameter wurden erfolgreich gelöscht.")
+                        delete_session_state()
+                        st.button('Löschen Beenden')
+                    if NEIN_button:
+                        st.session_state['NEIN_button_state'] = True
+                        st.success('Die Daten werden NICHT gelöscht und bleiben erhalten')
+                        delete_session_state()
+                        st.button('Löschen Beenden')
 
     
     # Laden der JSON-Daten
