@@ -494,13 +494,13 @@ with tab5:
                         save_data(json_dict)
                         st.success("Parameter wurden erfolgreich gelöscht.")
                         delete_session_state()
-                        st.write('Um das Löschen zu vervollständigen, untenstehenden Schaltfläche anklicken.)
+                        st.write('Um das Löschen zu vervollständigen, untenstehenden Schaltfläche anklicken.')
                         st.button('Löschen Beenden')
                     if NEIN_button:
                         st.session_state['NEIN_button_state'] = True
                         st.success('Die Daten werden NICHT gelöscht und bleiben erhalten')
                         delete_session_state()
-                        st.write('Um das Löschen zu vervollständigen, untenstehenden Schaltfläche anklicken.)
+                        st.write('Um das Löschen zu vervollständigen, untenstehenden Schaltfläche anklicken.')
                         st.button('Löschen Beenden')
 
     
