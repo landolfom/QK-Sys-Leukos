@@ -386,7 +386,6 @@ with tab3:
         
         if YES_button:
             st.session_state['YES_entry_button_state'] = True
-        if st.session_state['YES_entry_button_state']:
             delete_last()
             st.success('Letzter Eintrag wurde erfolgreich gelöscht.')
             delete_session_state2()
@@ -394,7 +393,6 @@ with tab3:
 
         if NO_button:
             st.session_state['NO_entry_button_state'] = True
-        if st.session_state['NO_entry_button_state']:
             st.success('Letzter Eintrag wurde NICHT gelöscht.')
             delete_session_state2()
             st.button('Löschen Beenden')
