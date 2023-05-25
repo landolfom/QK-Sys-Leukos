@@ -94,9 +94,16 @@ def search_and_display_row(df, column_name):
         st.warning("Keine Parameter entsprechen den Suchparametern.")
     return df
 
-# Löschen der Session State
+# Löschen der Session State der folgenden Buttons
 def delete_session_state():
     keys_to_delete = ['search_button_state', 'delete_button_state', 'JA_button_state', 'NEIN_button_state']
+    for key in keys_to_delete:
+        if key in st.session_state:
+            del st.session_state[key]
+
+# Löschen der Session State der folgenden Buttons
+def delete_session_state2():
+    keys_to_delete = ['last_entry_button_state', 'YES_button_state', 'NO_button_state']
     for key in keys_to_delete:
         if key in st.session_state:
             del st.session_state[key]
@@ -361,10 +368,36 @@ with tab3:
     st.header("Letzter Eintrag löschen") 
     st.write('')
     
+    if 'last_entry_button_state' not in st.session_state:
+        st.session_state['last_entry_button_state'] = False
+    if 'YES_button_state' not in st.session_state:
+        st.session_state['YES_button_state'] = False
+    if 'NO_button_state' not in st.session_state:
+        st.session_state['NO_button_state'] = False
+    
     last_entry = st.button('Löschen')
+    
     if last_entry:
-        delete_last()
-        st.success('Letzter Eintrag wurde erfolgreich gelöscht.')
+        st.session_state['last_entry_button_state'] = True
+    if st.session_state['last_entry_button_state']:
+        st.text('Sollen die Daten wirklich gelöscht werden?')
+        YES_button = st.button('JA')
+        NO_button = st.button('NEIN')
+        
+        if YES_button:
+            st.session_state['YES_entry_button_state'] = True
+        if st.session_state['YES_entry_button_state']:
+            delete_last()
+            st.success('Letzter Eintrag wurde erfolgreich gelöscht.')
+            delete_session_state2()
+            st.button('Löschen Beenden')
+
+        if NO_button:
+            st.session_state['NO_entry_button_state'] = True
+        if st.session_state['NO_entry_button_state']:
+            st.success('Letzter Eintrag wurde NICHT gelöscht.')
+            delete_session_state2()
+            st.button('Löschen Beenden')
         
     st.write('')    
     st.text('Letzter Eintrag:')
