@@ -389,12 +389,14 @@ with tab3:
             delete_last()
             st.success('Letzter Eintrag wurde erfolgreich gelöscht.')
             delete_session_state2()
+            st.text('Um das Löschen zu vervollständigen, untenstehende Schaltfläche anklicken.')
             st.button('Löschen Beenden')
 
         if NO_button:
             st.session_state['NO_entry_button_state'] = True
             st.success('Letzter Eintrag wurde NICHT gelöscht.')
             delete_session_state2()
+            st.text('Um das Löschen vollständig abzubrechen, untenstehende Schaltfläche anklicken.')
             st.button('Löschen Beenden')
         
     st.write('')    
@@ -531,7 +533,7 @@ with tab5:
                         st.session_state['NEIN_button_state'] = True
                         st.success('Die Daten werden NICHT gelöscht und bleiben erhalten')
                         delete_session_state()
-                        st.text('Um das Löschen zu vervollständigen, untenstehende Schaltfläche anklicken.')
+                        st.text('Um das Löschen vollständig abzubrechen, untenstehende Schaltfläche anklicken.')
                         st.button('Löschen Beenden')
 
     
