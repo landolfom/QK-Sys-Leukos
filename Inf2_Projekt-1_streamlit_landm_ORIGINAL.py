@@ -62,7 +62,7 @@ elif authentication_status == False:
     st.error('Username oder Passwort ist nicht korrekt')
     st.stop()
 elif authentication_status == None:
-    st.warning('Bitte geben Sie Ihr Username und Passwort ein')
+    st.info('Bitte geben Sie Ihr Username und Passwort ein')
     st.stop()
 
 # Löschen des letzten Eintrages    
